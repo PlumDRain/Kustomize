@@ -23,10 +23,16 @@
 	kustomize用途有多种，包含:
 	生成资源、全局性字段更改、资源管理提交、资源patch提交等基础使用方法；
 	高级的概念和用法有基准（Bases）与覆盖（Overlays）
-	实际windows应用中，我们经常都只使用生成资源这一个用途，这花费一个篇章进行记录；其他的如全局性字段更改、资源管理提交、资源patch提交都只是添头用途，放在一个章节内记录；而在gitops中会使用到base/overlays，也会在后文补充记录。
+	
+	实际应用中我们将kustomize分为两类：
+	1.基于文件生成新的yaml；2.基于旧yaml进行修改
+	
+	实际windows应用中，我们经常都只使用生成新yaml这一个用途，这花费一个篇章进行记录；
+	其他的如全局性字段更改、资源管理提交、资源patch提交这些修改旧yaml的都只是添头用途，放在一个章节内记录；
+	而修改旧yaml中也有一个比较常用的，就是修改yaml的镜像，在gitops中经常会用到，同时其高级理念base/overlays也在gitops上应用广泛，也会在后文补充记录。
 ```
 
-## 2. Windows下使用kustomize
+## 2. Windows下使用kustomize生成资源
 
 ### 2.1 文件下载
 
@@ -37,7 +43,7 @@
 	PS：kustomize_v4.5.4_windows_amd64.tar文件已下载，放置\Kustomize&Helm\Kustomize\windows下
 ```
 
-![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image1.jpg)
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image1.jpg)
 
 ### 2.2 文件安装
 
@@ -45,13 +51,13 @@
 	1）下载的kustomize_v4.5.4_windows_amd64.tar是二进制文件压缩包，解压后为二进制文件；
 ```
 
-![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image2.jpg)
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image2.jpg)
 
 ```shell
 	2）将二进制文件存放在/usr/bin目录下，方便在windows上使用kustomize。
 ```
 
-![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image3.jpg)
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image3.jpg)
 
 ### 2.3 Kustomize使用
 
@@ -92,7 +98,7 @@ Available Commands:
 	demo2是根据已有的多个配置文件生成一份configmap。
 ```
 
-![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image4.jpg)
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image4.jpg)
 
 ##### （一）Demo1：单配置文件生成Configmap
 
@@ -101,7 +107,7 @@ Available Commands:
 	一个kustomization.yaml文件
 ```
 
-![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image5.jpg)
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image5.jpg)
 
 **1）查看已有的单个配置文件**
 
@@ -149,13 +155,13 @@ metadata:
   name: example1-configmap-g4hk9g2ff8
 ```
 
-![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image6.jpg)
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image6.jpg)
 
 ```shell
 也可直接重定向到同级目录下的新文件内
 ```
 
-![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image7.jpg)
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image7.jpg)
 
 **4）kustomization.yaml优化**
 
@@ -213,7 +219,7 @@ metadata:
 	一个kustomization.yaml文件
 ```
 
-![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image8.jpg)
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image8.jpg)
 
 **1）查看kustomization.yaml**
 
@@ -342,7 +348,7 @@ metadata:
 	也可直接重定向到同级目录下的新文件内
 ```
 
-![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image9.jpg)
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image9.jpg)
 
 #### 2.3.4 Secret Generator
 
@@ -353,7 +359,7 @@ metadata:
 	demo2是根据键值对生成secret。
 ```
 
-![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image10.jpg)
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image10.jpg)
 
 ##### （一）Demo1：根据文件生成Secret
 
@@ -362,7 +368,7 @@ metadata:
 	一个kustomization.yaml文件
 ```
 
-![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image11.jpg)
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image11.jpg)
 
 **1）查看password文件**
 
@@ -413,7 +419,7 @@ type: Opaque
 PS:Secret资源清单中字段值是Base64编码加密后的："dXNlcm5hbWU9YWRtaW4KcGFzc3dvcmQ9c2VjcmV0Cg=="，不过，当在Pod中使用Secret时，kubelet为Pod及其中的容器提供的是解码后的数据
 ```
 
-![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image12.jpg)
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image12.jpg)
 
 ##### （二）Demo2：根据键值对生成Secret
 
@@ -421,7 +427,7 @@ PS:Secret资源清单中字段值是Base64编码加密后的："dXNlcm5hbWU9YWRt
 	一个kustomization.yaml文件
 ```
 
-![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image13.jpg)
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image13.jpg)
 
 **1）查看kustomization.yaml**
 
@@ -453,16 +459,570 @@ metadata:
 type: Opaque
 ```
 
-![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image14.jpg)
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image14.jpg)
 
-## 3. Kustomize其他功能
+## 3. Kustomize基于旧yaml进行修改
 
 ### 3.1 全局性字段更改
 
+```shell
+	可以实现的功能：
+	1）替换命名空间
+	2）为所有对象添加相同的前缀或后缀
+	3）为对象添加相同的标签集合
+	4）为对象添加相同的注解集合
+	
+	相关文件在\Kustomize&Helm\Kustomize\examples\Key-Value Replace下
+	一个源deployment.yaml
+	一个kustomization.yaml（定制化修改deployment.yaml的资源清单）
+```
 
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image15.jpg)
 
-### 3.2 资源管理提交&资源patch提交
+**1）查看已有的deployment资源清单文件**
 
+```shell
+$ cat deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+```
 
+**2）使用kustomize进行全局性字段更改**
+
+```shell
+1.查看kustomization.yaml清单
+$ cat kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: nginx					#修改命名空间
+namePrefix: ops-					#namePrefix：为名字添加前缀
+nameSuffix: "-001"					#nameSuffix：为名字添加后缀
+commonLabels:						#添加标签：[key:value]
+  organization: littleboy
+commonAnnotations:					#添加注解:[key:value]
+  organization-tel: 888-888-8888
+resources:							#源文件
+- deployment.yaml
+
+2.构建新的yaml
+$ kustomize.exe build .
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    organization-tel: 888-888-8888	
+  labels:
+    app: nginx
+    organization: littleboy
+  name: ops-nginx-deployment-001
+  namespace: nginx
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+      organization: littleboy
+  template:
+    metadata:
+      annotations:
+        organization-tel: 888-888-8888
+      labels:
+        app: nginx
+        organization: littleboy
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+
+PS：观察发现：
+	1.命名空间由default修订为nginx
+	2.全局新增注解及标签
+	3.deployment名字添加前后缀
+```
+
+### 3.2 资源整合提交&资源patch提交
+
+```shell
+	资源整合提交的实质：
+	将多个源yaml文件整合到一个yaml中，方便之后一并提交，一次创建所有资源
+	
+	资源patch提交的实质：
+	对deployment添加某些非注解标签性的字段，例如副本数、资源限制，这些小的改动成为patch（补丁），再通过这些补丁对yaml进行修改
+	
+	相关文件在\Kustomize&Helm\Kustomize\examples\Key-Value Replace下
+	两个Demo：
+	Demo1是资源整合提交
+	Demo2是资源patch提交
+```
+
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image16.jpg)
+
+#### 3.2.1 资源整合提交
+
+```shell
+	Demo1文件夹下有三个文件：
+	1.service.yaml(nginx的svc清单)
+	2.deployment.yaml(nginx的负载清单)
+	3.kustomization.yaml
+```
+
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image17.jpg)
+
+**1）查看service.yaml**
+
+```shell
+$ cat service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-nginx
+  labels:
+    run: my-nginx
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    run: my-nginx
+```
+
+**2）查看deployment.yaml**
+
+```shell
+$ cat deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx
+spec:
+  selector:
+    matchLabels:
+      run: my-nginx
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: my-nginx
+    spec:
+      containers:
+      - name: my-nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+```
+
+**3）使用kustomize进行全局性字段更改**
+
+```shell
+1.查看kustomization.yaml清单
+$ cat kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- deployment.yaml
+- service.yaml
+
+2.构建新的yaml
+$ kustomize.exe build .
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: my-nginx
+  name: my-nginx
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    run: my-nginx
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: my-nginx
+  template:
+    metadata:
+      labels:
+        run: my-nginx
+    spec:
+      containers:
+      - image: nginx
+        name: my-nginx
+        ports:
+        - containerPort: 80
+```
+
+#### 3.2.2 资源patch提交
+
+```shell
+	Demo2文件夹下有四个文件：
+	1.deployment.yaml(nginx的负载清单)
+	2.两个patch文件：increase_replicas.yaml/set_memory.yaml（补丁文件用于定义修改deployment的项）
+	3.kustomization.yaml
+```
+
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image18.jpg)
+
+**1）查看deployment.yaml**
+
+```shell
+$ cat deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx
+spec:
+  selector:
+    matchLabels:
+      run: my-nginx
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: my-nginx
+    spec:
+      containers:
+      - name: my-nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+```
+
+**2）查看patch文件**
+
+```shell
+1.memory限制的patch清单
+$ cat set_memory.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx
+spec:
+  template:
+    spec:
+      containers:
+      - name: my-nginx
+        resources:
+          limits:
+            memory: 512Mi
+	
+2.变更副本数的patch清单	
+$ cat increase_replicas.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx
+spec:
+  replicas: 3
+```
+
+**3）使用kustomize提交patch构建新yaml**
+
+```shell
+1.查看kustomization.yaml
+$ cat kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- deployment.yaml
+patchesStrategicMerge:
+- increase_replicas.yaml
+- set_memory.yaml
+
+2.构建新yaml
+$ kustomize.exe build .
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: my-nginx
+  template:
+    metadata:
+      labels:
+        run: my-nginx
+    spec:
+      containers:
+      - image: nginx
+        name: my-nginx
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: 512Mi
+```
+
+### 3.3 Deployment镜像修改
+
+```shell
+	kubernetes的cd实质上就是更改服务的镜像版本，因此kustomize的镜像修改在cd过程中会经常用到
+	
+	相关文件在\Kustomize&Helm\Kustomize\examples\Image Upgrade下
+	一个deployment.yaml
+	一个替换镜像的kustomization.yaml
+```
+
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image19.jpg)
+
+**1）查看deployment.yaml**
+
+```shell
+$ cat deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx
+spec:
+  selector:
+    matchLabels:
+      run: my-nginx
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: my-nginx
+    spec:
+      containers:
+      - name: my-nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+```
+
+**2）使用kustomize提交patch构建新yaml**
+
+```shell
+1.查看kustomization.yaml
+$ cat kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- deployment.yaml
+images:
+- name: nginx
+  newName: littleboy.registry/nginx
+  newTag: 1.4.0
+
+2.构建新yaml
+$ kustomize.exe build .
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: my-nginx
+  template:
+    metadata:
+      labels:
+        run: my-nginx
+    spec:
+      containers:
+      - image: my.image.registry/nginx:1.4.0
+        name: my-nginx
+        ports:
+        - containerPort: 80
+```
 
 ## 4. 基准（Bases）与覆盖（Overlays）
+
+```shell
+	基准Bases是为服务定义一个基础环境（例如初始镜像版本，初始资源限制，服务初始标签等）；
+	覆盖Overlays是在基准的基础上执行修改yaml的操作，生成新的环境（例如在初始镜像版本上更改了新的镜像）。
+	覆盖Overlays可以有多个不同的，但是每个覆盖Overlays都是基于基准bases进行的。
+	
+	相关文件在\Kustomize&Helm\Kustomize\examples\Bases Overlays目录下
+	其中包含一个基准环境base
+	v1.0/v1.1分别是基于基准环境base进行修改的覆盖环境
+```
+
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image20.jpg)
+
+**(一）查看基准环境base相关文件**
+
+```shell
+	包含服务的service.yaml/deployment.yaml
+	以及kustomization.yaml清单
+```
+
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image21.jpg)
+
+```shell
+1.查看deployment.yaml
+$ cat deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx
+spec:
+  selector:
+    matchLabels:
+      run: my-nginx
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: my-nginx
+    spec:
+      containers:
+      - name: my-nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+
+2.查看service.yaml
+$ cat service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-nginx
+  labels:
+    run: my-nginx
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    run: my-nginx
+    
+3.查看kustomization.yaml	(资源整合提交)
+$ cat kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- deployment.yaml
+- service.yaml
+```
+
+**(二）查看覆盖overlays环境v1.0/v1.1相关文件**
+
+```shell
+	v1.0/v1.1都是基于base进行修改，修改的是deployment的镜像版本，都只有一个kustomization.yaml
+```
+
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image22.jpg)
+
+**1)  v1.0覆盖环境**
+
+```shell
+1.1查看v1.0覆盖环境Overlays的kustomization.yaml
+$ cat kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+bases:
+- ../base
+images:
+- name: nginx
+  newName: littleboy.registry/nginx
+  newTag: v1.0
+
+1.2.构建新yaml
+$ kustomize.exe build .
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: my-nginx
+  name: my-nginx
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    run: my-nginx
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: my-nginx
+  template:
+    metadata:
+      labels:
+        run: my-nginx
+    spec:
+      containers:
+      - image: littleboy.registry/nginx:v1.0
+        name: my-nginx
+```
+
+![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image23.jpg)
+
+**2)  v1.1覆盖环境**
+
+```shell
+2.1查看v1.1覆盖环境Overlays的kustomization.yaml
+$ cat kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+bases:
+- ../base
+images:
+- name: nginx
+  newName: littleboy.registry/nginx
+  newTag: v1.1
+
+2.2.构建新yaml
+$ kustomize.exe build .
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: my-nginx
+  name: my-nginx
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    run: my-nginx
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: my-nginx
+  template:
+    metadata:
+      labels:
+        run: my-nginx
+    spec:
+      containers:
+      - image: littleboy.registry/nginx:v1.1
+        name: my-nginx
+```
+
