@@ -1,0 +1,19 @@
+{
+  "env": "dev",
+  "enableZipkin": false,
+  "enableModcall": false,
+  "deployEnv": "local",
+  "gidMappingHost": "TAdaptor.GIDMappingService.GIDMappingObj@tcp -h tadaptor-gidmapping -p 50092 -t 60000",
+  "powerCapacityUrl": "http://10.10.10.10:32515/getRackClm",
+  "powerDataHistoryUrl": "http://10.10.10.10/queryHistoryIndicator",
+  "disableSyncPowerData": true,
+  "disableMdcSyncPowerData": true,
+  "mdcSyncOverpowerConfig": {
+    "rackConfigCronSpec": "0 */10 * * * *",
+    "rackDataCronSpec": "0 */5 * * * *",
+    "rackDataMinuteRange": 10,
+    "clmConfigCronSpec": "0 */10 * * * *",
+    "clmDataCronSpec": "0 */5 * * * *",
+    "clmDataMinuteRange": 10
+  }
+}

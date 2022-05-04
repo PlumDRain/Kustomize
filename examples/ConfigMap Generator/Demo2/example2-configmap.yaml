@@ -1,0 +1,96 @@
+apiVersion: v1
+data:
+  config.conf: |
+    <tars>
+            <application>
+                    <server>
+                            app=TAdaptor
+                            server=AlarmSyncData
+                            local=tcp -h 0.0.0.0 -p 10021 -t 30000
+                            logpath=/tmp/log
+                            <TAdaptor.AlarmSyncData.MainTarsObjAdapter>
+                                    allow
+                                    endpoint=tcp -h 0.0.0.0 -p 11120 -t 60000
+                                    handlegroup=TAdaptor.AlarmSyncData.MainTarsObjAdapter
+                                    maxconns=200000
+                                    protocol=tars
+                                    queuecap=10000
+                                    queuetimeout=60000
+                                    servant=TAdaptor.AlarmSyncData.MainTarsObj
+                                    shmcap=0
+                                    shmkey=0
+                                    threads=1
+                            </TAdaptor.AlarmSyncData.MainTarsObjAdapter>
+                            <TAdaptor.AlarmSyncData.CgiObjAdapter>
+                                    allow
+                                    endpoint=tcp -h 0.0.0.0 -p 8080 -t 60000
+                                    handlegroup=TAdaptor.AlarmSyncData.CgiObjAdapter
+                                    maxconns=200000
+                                    protocol=tars
+                                    queuecap=10000
+                                    queuetimeout=60000
+                                    servant=TAdaptor.AlarmSyncData.CgiObj
+                                    shmcap=0
+                                    shmkey=0
+                                    threads=1
+                            </TAdaptor.AlarmSyncData.CgiObjAdapter>
+                    </server>
+            </application>
+    </tars>
+  config.json: |-
+    {
+      "env": "dev",
+      "enableZipkin": false,
+      "enableModcall": false,
+      "deployEnv": "local",
+      "gidMappingHost": "TAdaptor.GIDMappingService.GIDMappingObj@tcp -h tadaptor-gidmapping -p 50092 -t 60000",
+      "powerCapacityUrl": "http://10.10.10.10:32515/getRackClm",
+      "powerDataHistoryUrl": "http://10.10.10.10/queryHistoryIndicator",
+      "disableSyncPowerData": true,
+      "disableMdcSyncPowerData": true,
+      "mdcSyncOverpowerConfig": {
+        "rackConfigCronSpec": "0 */10 * * * *",
+        "rackDataCronSpec": "0 */5 * * * *",
+        "rackDataMinuteRange": 10,
+        "clmConfigCronSpec": "0 */10 * * * *",
+        "clmDataCronSpec": "0 */5 * * * *",
+        "clmDataMinuteRange": 10
+      }
+    }
+  mysqlconfig.json: |-
+    [
+      {
+        "name": "t_adaptor",
+        "host": "10.10.10.10",
+        "port": "3306",
+        "user": "idc",
+        "password": "idc",
+        "database": "t_adaptor_326",
+        "logLevel": "INFO"
+      }
+    ]
+  redisconfig.json: |-
+    [
+      {
+        "name": "t_adaptor",
+        "host": "10.10.10.10",
+        "port": "6379",
+        "user": "",
+        "password": "ceodGpPI8yCbgBtj",
+        "database": ""
+      },
+      {
+        "name": "t_adaptor_test",
+        "host": "10.10.10.10",
+        "port": "6379",
+        "user": "root",
+        "password": "Aop!@#2014",
+        "database": ""
+      }
+    ]
+  tars.json: |-
+    {
+    }
+kind: ConfigMap
+metadata:
+  name: example2-configmap

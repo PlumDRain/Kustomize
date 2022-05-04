@@ -1,0 +1,10 @@
+configMapGenerator:
+- name: example2-configmap
+  files:
+  - config.conf
+  - config.json
+  - mysqlconfig.json
+  - redisconfig.json
+  - tars.json
+generatorOptions:
+  disableNameSuffixHash: true 

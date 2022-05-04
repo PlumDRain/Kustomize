@@ -1,0 +1,18 @@
+[
+  {
+    "name": "t_adaptor",
+    "host": "10.10.10.10",
+    "port": "6379",
+    "user": "",
+    "password": "ceodGpPI8yCbgBtj",
+    "database": ""
+  },
+  {
+    "name": "t_adaptor_test",
+    "host": "10.10.10.10",
+    "port": "6379",
+    "user": "root",
+    "password": "Aop!@#2014",
+    "database": ""
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "name": "t_adaptor",
+    "host": "10.10.10.10",
+    "port": "3306",
+    "user": "idc",
+    "password": "idc",
+    "database": "t_adaptor_326",
+    "logLevel": "INFO"
+  }
+]

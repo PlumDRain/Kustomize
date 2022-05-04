@@ -1,0 +1,6 @@
+secretGenerator:
+- name: example3-secret
+  files:
+  - password.txt
+generatorOptions:
+  disableNameSuffixHash: true

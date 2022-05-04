@@ -1,0 +1,5 @@
+secretGenerator:
+- name: example4-secret
+  literals:
+  - username=admin
+  - password=secret
