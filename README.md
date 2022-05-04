@@ -43,7 +43,7 @@
 	PS：kustomize_v4.5.4_windows_amd64.tar文件已下载，放置\Kustomize&Helm\Kustomize\windows下
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image1.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image1.jpg)
 
 ### 2.2 文件安装
 
@@ -51,13 +51,13 @@
 	1）下载的kustomize_v4.5.4_windows_amd64.tar是二进制文件压缩包，解压后为二进制文件；
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image2.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image2.jpg)
 
 ```shell
 	2）将二进制文件存放在/usr/bin目录下，方便在windows上使用kustomize。
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image3.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image3.jpg)
 
 ### 2.3 Kustomize使用
 
@@ -98,7 +98,7 @@ Available Commands:
 	demo2是根据已有的多个配置文件生成一份configmap。
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image4.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image4.jpg)
 
 ##### （一）Demo1：单配置文件生成Configmap
 
@@ -107,7 +107,7 @@ Available Commands:
 	一个kustomization.yaml文件
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image5.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image5.jpg)
 
 **1）查看已有的单个配置文件**
 
@@ -155,13 +155,13 @@ metadata:
   name: example1-configmap-g4hk9g2ff8
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image6.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image6.jpg)
 
 ```shell
 也可直接重定向到同级目录下的新文件内
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image7.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image7.jpg)
 
 **4）kustomization.yaml优化**
 
@@ -219,7 +219,7 @@ metadata:
 	一个kustomization.yaml文件
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image8.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image8.jpg)
 
 **1）查看kustomization.yaml**
 
@@ -348,7 +348,7 @@ metadata:
 	也可直接重定向到同级目录下的新文件内
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image9.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image9.jpg)
 
 #### 2.3.4 Secret Generator
 
@@ -359,7 +359,7 @@ metadata:
 	demo2是根据键值对生成secret。
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image10.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image10.jpg)
 
 ##### （一）Demo1：根据文件生成Secret
 
@@ -368,7 +368,7 @@ metadata:
 	一个kustomization.yaml文件
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image11.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image11.jpg)
 
 **1）查看password文件**
 
@@ -419,7 +419,7 @@ type: Opaque
 PS:Secret资源清单中字段值是Base64编码加密后的："dXNlcm5hbWU9YWRtaW4KcGFzc3dvcmQ9c2VjcmV0Cg=="，不过，当在Pod中使用Secret时，kubelet为Pod及其中的容器提供的是解码后的数据
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image12.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image12.jpg)
 
 ##### （二）Demo2：根据键值对生成Secret
 
@@ -427,7 +427,7 @@ PS:Secret资源清单中字段值是Base64编码加密后的："dXNlcm5hbWU9YWRt
 	一个kustomization.yaml文件
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image13.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image13.jpg)
 
 **1）查看kustomization.yaml**
 
@@ -459,7 +459,7 @@ metadata:
 type: Opaque
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image14.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image14.jpg)
 
 ## 3. Kustomize基于旧yaml进行修改
 
@@ -477,7 +477,7 @@ type: Opaque
 	一个kustomization.yaml（定制化修改deployment.yaml的资源清单）
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image15.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image15.jpg)
 
 **1）查看已有的deployment资源清单文件**
 
@@ -570,7 +570,7 @@ PS：观察发现：
 	Demo2是资源patch提交
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image16.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image16.jpg)
 
 #### 3.2.1 资源整合提交
 
@@ -581,7 +581,7 @@ PS：观察发现：
 	3.kustomization.yaml
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image17.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image17.jpg)
 
 **1）查看service.yaml**
 
@@ -682,7 +682,7 @@ spec:
 	3.kustomization.yaml
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image18.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image18.jpg)
 
 **1）查看deployment.yaml**
 
@@ -786,7 +786,7 @@ spec:
 	一个替换镜像的kustomization.yaml
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image19.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image19.jpg)
 
 **1）查看deployment.yaml**
 
@@ -862,7 +862,7 @@ spec:
 	v1.0/v1.1分别是基于基准环境base进行修改的覆盖环境
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image20.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image20.jpg)
 
 **(一）查看基准环境base相关文件**
 
@@ -871,7 +871,7 @@ spec:
 	以及kustomization.yaml清单
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image21.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image21.jpg)
 
 ```shell
 1.查看deployment.yaml
@@ -926,7 +926,7 @@ resources:
 	v1.0/v1.1都是基于base进行修改，修改的是deployment的镜像版本，都只有一个kustomization.yaml
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image22.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image22.jpg)
 
 **1)  v1.0覆盖环境**
 
@@ -976,7 +976,7 @@ spec:
         name: my-nginx
 ```
 
-![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image23.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image23.jpg)
 
 **2)  v1.1覆盖环境**
 
