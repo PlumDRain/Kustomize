@@ -38,6 +38,7 @@
 ```
 
 ![kustomize-image1](C:\Users\v_habzhang\Desktop\Kustomize&Helm\Kustomize\images\kustomize-image1.jpg)
+![kustomize-image1](https://github.com/PlumDRain/Kustomize/blob/main/images/kustomize-image1.jpg)
 
 ### 2.2 文件安装
 
